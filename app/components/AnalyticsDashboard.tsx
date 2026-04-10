@@ -69,7 +69,7 @@ export default function AnalyticsDashboard({ protocols, t }: AnalyticsProps) {
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
                 <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `Rp${value / 1000}k`} />
-                <Tooltip cursor={{ fill: 'var(--bg-main)', opacity: 0.5 }} contentStyle={{ backgroundColor: 'var(--bg-sidebar)', borderColor: 'var(--border)', borderRadius: '12px', color: 'var(--text-main)', fontWeight: 'bold' }} formatter={(value: number) => formatRupiah(value)} />
+                <Tooltip cursor={{ fill: 'var(--bg-main)', opacity: 0.5 }} contentStyle={{ backgroundColor: 'var(--bg-sidebar)', borderColor: 'var(--border)', borderRadius: '12px', color: 'var(--text-main)', fontWeight: 'bold' }} formatter={(value: any) => formatRupiah(Number(value))} />
                 <Legend wrapperStyle={{ paddingTop: '20px' }} />
                 <Bar dataKey="Income" fill="#10B981" radius={[6, 6, 0, 0]} barSize={50} />
                 <Bar dataKey="Expense" fill="#F43F5E" radius={[6, 6, 0, 0]} barSize={50} />
