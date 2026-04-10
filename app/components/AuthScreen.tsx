@@ -77,10 +77,7 @@ export default function AuthScreen() {
     if (error) setMsg(`Error: ${error.message}`); 
     else setMsg(t.successR); 
     setLoading(false);
-  };
-
-  if (cooldown > 0) return; 
-    triggerCooldown();        
+  };       
 
   return (
     <div className="flex h-screen w-full items-center justify-center bg-[#050505] bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,#151515_0%,#000_100%)] text-[var(--text-main)] font-sans relative overflow-hidden">
