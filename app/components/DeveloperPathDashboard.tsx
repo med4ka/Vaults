@@ -23,7 +23,7 @@ const AVAILABLE_STACKS = [
 export default function DeveloperPathDashboard({ activeProtocol, insertTaskDirectly, updateTaskText, deleteTask }: DeveloperPathProps) {
   const [editingDevTask, setEditingDevTask] = useState<Task | null>(null);
 
-  // FUNGSI BUAT NAMBAH/HAPUS TECH STACK PAS KAPSUL DIKLIK
+  
   const toggleTechStack = (stack: string) => {
     if (!editingDevTask) return;
     const parts = editingDevTask.name.split('||');
@@ -63,7 +63,7 @@ export default function DeveloperPathDashboard({ activeProtocol, insertTaskDirec
                 <button onClick={(e) => { e.stopPropagation(); deleteTask(task.id); }} className="opacity-0 group-hover:opacity-100 text-[var(--text-muted)] hover:text-red-500 transition-opacity"><Trash2 className="w-4 h-4" /></button>
               </div>
               
-              {/* Nampilin Tech Stack di Kartu (Kapsul Kecil) */}
+              
               <div className="flex flex-wrap gap-2 mb-4">
                 {pStack ? pStack.split(', ').map(stack => (
                   <span key={stack} className="text-[10px] font-bold px-2 py-1 bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 rounded-md">
@@ -89,7 +89,7 @@ export default function DeveloperPathDashboard({ activeProtocol, insertTaskDirec
         <Plus className="w-4 h-4" /> ADD NEW PROJECT
       </button>
 
-      {/* MODAL POP-UP EDIT PROJECT */}
+      
       {editingDevTask && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-[fadeIn_0.1s_ease-out]">
           <div className="w-full max-w-[600px] bg-[var(--bg-sidebar)] border border-[var(--border)] rounded-2xl shadow-2xl flex flex-col relative m-4">
@@ -124,7 +124,7 @@ export default function DeveloperPathDashboard({ activeProtocol, insertTaskDirec
                 </div>
               </div>
 
-              {/* 🔥 TECH STACK PILL SELECTOR 🔥 */}
+              
               <div className="flex flex-col gap-2">
                 <label className="text-xs font-bold tracking-widest text-[var(--text-muted)] uppercase">Tech Stack</label>
                 <div className="flex overflow-x-auto pb-2 gap-2 custom-scrollbar">

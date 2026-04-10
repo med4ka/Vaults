@@ -17,12 +17,12 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
   const [currentWeekStart, setCurrentWeekStart] = useState(new Date());
   const [weekDates, setWeekDates] = useState<Date[]>([]);
 
-  // ENGINE PENGHITUNG TANGGAL
+  
   useEffect(() => {
     const getWeekDates = (baseDate: Date) => {
       const dates = [];
       const currentDay = baseDate.getDay();
-      const distance = currentDay === 0 ? -6 : 1 - currentDay; // Bikin Senin jadi hari pertama
+      const distance = currentDay === 0 ? -6 : 1 - currentDay; 
       
       const startOfWeek = new Date(baseDate);
       startOfWeek.setDate(baseDate.getDate() + distance);
@@ -62,7 +62,7 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
   return (
     <div className="animate-[fadeIn_0.5s_ease-out] w-full flex flex-col h-full">
       
-      {/* 1. KONTROL KALENDER DI ATAS */}
+      
       <div className="flex items-center justify-between mb-6 bg-[var(--bg-hover)]/40 p-4 rounded-2xl border border-[var(--border)] backdrop-blur-sm shadow-sm">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-[var(--accent)]/10 text-[var(--accent)] rounded-lg border border-[var(--accent)]/20">
@@ -86,7 +86,7 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
         </div>
       </div>
 
-      {/* 2. GRID 7 HARI KALENDER */}
+      
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-4 flex-1">
         {weekDates.map(date => {
           const dateStr = formatDate(date);
@@ -96,7 +96,7 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
           return (
             <div key={dateStr} className={`flex flex-col h-[500px] rounded-2xl border transition-all duration-300 ${isToday ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_0_20px_rgba(46,170,220,0.05)]' : 'border-[var(--border)] bg-[var(--bg-hover)]/40 hover:border-[var(--text-muted)]/30'} backdrop-blur-sm overflow-hidden`}>
               
-              {/* HEADER HARI & TANGGAL */}
+            
               <div className={`p-4 border-b border-[var(--border)] flex items-center justify-between ${isToday ? 'bg-[var(--accent)]/10' : 'bg-[var(--bg-main)]/50'}`}>
                 <span className={`font-bold text-sm tracking-widest uppercase ${isToday ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`}>
                   {getDayName(date)}
@@ -106,7 +106,7 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
                 </span>
               </div>
 
-              {/* LIST TUGAS */}
+              
               <div className="flex-1 overflow-y-auto p-2 flex flex-col gap-1 custom-scrollbar">
                 {dayTasks.map((task: Task) => {
                   const cleanName = task.name.replace(`[${dateStr}] `, '');
@@ -126,7 +126,7 @@ export default function CalendarDashboard({ activeProtocol, insertTaskDirectly, 
                     <input autoFocus type="text" onKeyDown={(e) => handleTaskAdd(e, dateStr)} onBlur={() => setAddingDate(null)} className="w-full bg-transparent outline-none text-[13px] text-[var(--text-main)] font-medium" placeholder="New task..." />
                   </div>
                 ) : (
-                  <button onClick={() => setAddingDate(dateStr)} c                                      lassName="flex items-center gap-1 p-2 text-[11px] font-bold text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors w-full mt-1">
+                  <button onClick={() => setAddingDate(dateStr)} className="flex items-center gap-1 p-2 text-[11px] font-bold text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors w-full mt-1">
                     <Plus className="w-3 h-3" /> ADD TASK
                   </button>
                 )}

@@ -22,7 +22,7 @@ export default function WeeklyRoutineDashboard({
   toggleTask, 
   deleteTask 
 }: WeeklyRoutineProps) {
-  // STATE DAN FUNGSI KHUSUS WEEKLY PINDAH KE SINI
+  
   const [addingDay, setAddingDay] = useState<string | null>(null);
 
   const handleKanbanAdd = async (e: React.KeyboardEvent<HTMLInputElement>, day: string) => {

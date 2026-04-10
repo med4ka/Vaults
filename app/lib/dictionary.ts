@@ -2,7 +2,7 @@ export type Lang = 'en' | 'id' | 'zh';
 
 export const dict = {
   en: {
-    // ... (biarin isi yang lama tetap ada) ...
+    
     workspace: "Workspace",
     home: "Home",
     settings: "Settings",
@@ -13,7 +13,7 @@ export const dict = {
     loading: "INITIALIZING SYSTEM...",
     lang: "Language",
     theme: "Theme",
-    // 🔥 TAMBAHAN BUAT FINANCE:
+    
     income: "INCOME",
     expense: "EXPENSE",
     netBalance: "NET BALANCE",
@@ -23,7 +23,7 @@ export const dict = {
     transHistory: "TRANSACTION HISTORY"
   },
   id: {
-    // ... (biarin isi yang lama tetap ada) ...
+    
     workspace: "Ruang Kerja",
     home: "Beranda",
     settings: "Pengaturan",
@@ -34,7 +34,7 @@ export const dict = {
     loading: "MEMULAI SISTEM...",
     lang: "Bahasa",
     theme: "Tema",
-    // 🔥 TAMBAHAN BUAT FINANCE:
+    
     income: "PEMASUKAN",
     expense: "PENGELUARAN",
     netBalance: "SISA SALDO",
@@ -44,7 +44,7 @@ export const dict = {
     transHistory: "RIWAYAT TRANSAKSI"
   },
   zh: {
-    // ... (biarin isi yang lama tetap ada) ...
+    
     workspace: "工作区",
     home: "主页",
     settings: "设置",
@@ -55,7 +55,7 @@ export const dict = {
     loading: "系统初始化...",
     lang: "语言",
     theme: "主题",
-    // 🔥 TAMBAHAN BUAT FINANCE:
+    
     income: "收入",
     expense: "支出",
     netBalance: "净余额",

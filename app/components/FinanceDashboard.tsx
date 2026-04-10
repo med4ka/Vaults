@@ -23,10 +23,10 @@ const handleFinanceAdd = async (e: React.FormEvent) => {
     const cleanAmount = finAmount.replace(/\D/g, "");
     if (!cleanAmount) return;
 
-    // 1. Simpan ke database Supabase (UI lokal tetap jalan)
+    
     await insertTaskDirectly(`${finType}||${cleanAmount}||${finDesc}`);
 
-    // 2. 🔥 JEMBATAN FULLSTACK: TEMBAK DATA KE BACKEND GOLANG 🔥
+    
     try {
       const response = await fetch("http://localhost:8080/api/finance", {
         method: "POST",
@@ -39,13 +39,13 @@ const handleFinanceAdd = async (e: React.FormEvent) => {
       });
 
       if (response.ok) {
-        console.log("✅ BERHASIL NYAMBUNG KE GOLANG!");
+        console.log("BERHASIL NYAMBUNG KE GOLANG!");
       }
     } catch (error) {
-      console.error("❌ Gagal nyambung ke Golang. Pastikan server nyala!", error);
+      console.error("Gagal nyambung ke Golang. Pastikan server nyala!", error);
     }
 
-    // Reset Form Input
+    
     setFinAmount(""); 
     setFinDesc("");
   };

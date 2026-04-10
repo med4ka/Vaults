@@ -12,7 +12,7 @@ export default function FlowStateDashboard({ activeProtocol, updateTaskText }: F
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
 
-  // LOGIKA TIMER PINDAH KESINI
+  
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isRunning && timeLeft > 0) {

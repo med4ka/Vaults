@@ -4,7 +4,7 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 interface AnalyticsProps {
-  protocols: any[]; // 🔥 SEKARANG DIA NERIMA SEMUA DATA, BUKAN CUMA YANG AKTIF
+  protocols: any[]; 
   t: any;
 }
 
@@ -14,12 +14,12 @@ export default function AnalyticsDashboard({ protocols, t }: AnalyticsProps) {
   let completedTasks = 0;
   let pendingTasks = 0;
 
-  // 🔥 LOOPING GANDA: Nge-scan semua menu, lalu nge-scan semua task di dalamnya
+  
   if (protocols && protocols.length > 0) {
     protocols.forEach((protocol) => {
       protocol.tasks.forEach((task: any) => {
         
-        // Cek apakah ini data Uang (IN/OUT)
+        
         if (task.name.startsWith("IN||") || task.name.startsWith("OUT||")) {
           const parts = task.name.split("||");
           const type = parts[0];
@@ -27,7 +27,7 @@ export default function AnalyticsDashboard({ protocols, t }: AnalyticsProps) {
           if (type === "IN") totalIn += amt;
           if (type === "OUT") totalOut += amt;
         } 
-        // Kalau bukan uang (berarti tugas harian / project), masukin ke Pie Chart
+        
         else {
           if (task.checked) completedTasks++;
           else pendingTasks++;
@@ -60,7 +60,7 @@ export default function AnalyticsDashboard({ protocols, t }: AnalyticsProps) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* GRAFIK 1: CASHFLOW */}
+        
         <div className="p-6 rounded-2xl border border-[var(--border)] bg-[var(--bg-hover)]/40 backdrop-blur-sm shadow-lg h-[400px] flex flex-col group hover:border-[var(--accent)] transition-colors">
           <h3 className="text-xs font-bold text-[var(--text-muted)] group-hover:text-[var(--accent)] tracking-widest mb-6 uppercase text-center transition-colors">Cashflow (IN vs OUT)</h3>
           <div className="flex-1 w-full">
@@ -78,7 +78,7 @@ export default function AnalyticsDashboard({ protocols, t }: AnalyticsProps) {
           </div>
         </div>
 
-        {/* GRAFIK 2: TASK COMPLETION */}
+        
         <div className="p-6 rounded-2xl border border-[var(--border)] bg-[var(--bg-hover)]/40 backdrop-blur-sm shadow-lg h-[400px] flex flex-col group hover:border-[var(--accent)] transition-colors">
           <h3 className="text-xs font-bold text-[var(--text-muted)] group-hover:text-[var(--accent)] tracking-widest mb-6 uppercase text-center transition-colors">Task Completion Rate</h3>
           <div className="flex-1 w-full flex items-center justify-center">

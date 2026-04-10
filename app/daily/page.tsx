@@ -117,11 +117,11 @@ export default function DailyProtocol() {
   const fetchData = async () => {
     setIsLoading(true);
     
-    // 🔥 MESIN PENARIK DATA ANTI-BADAI (Copot order created_at biar ga crash) 🔥
+    
     const { data: pData, error: pError } = await supabase.from('protocols').select('*').order('order_index', { ascending: true });
     const { data: tData, error: tError } = await supabase.from('tasks').select('*');
     
-    // Kalau masih nge-blank, errornya bakal muncul di merah-merah Console F12!
+    
     if (pError) console.error("❌ ERROR DI PROTOCOL:", pError);
     if (tError) console.error("❌ ERROR DI TASKS:", tError);
 
@@ -281,7 +281,7 @@ export default function DailyProtocol() {
             {/* Cincin luar muter */}
             <div className="absolute inset-0 rounded-full border border-[var(--accent)] border-t-transparent animate-spin duration-1500"></div>
             
-            {/* 🔥 ICON JAM PASIR LU DI SINI JENDRAL! 🔥 */}
+            
             <Hourglass className="w-14 h-14 text-[var(--accent)] animate-pulse drop-shadow-[0_0_15px_var(--accent)]" />
           </div>
           
@@ -574,23 +574,23 @@ export default function DailyProtocol() {
                   <input type="text" value={localTitle} onChange={(e) => setLocalTitle(e.target.value)} onBlur={() => updateProtocolName(activeId, localTitle)} onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); }} className="text-5xl font-black text-[var(--text-main)] bg-transparent outline-none w-full placeholder-[var(--border)] tracking-tight transition-colors duration-500 ease-in-out" placeholder={t.untitled} />
                 </div>
 
-                {/* 1. FINANCE DASHBOARD */}
+                
                 {isFinance ? (
                   <FinanceDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} deleteTask={deleteTask} t={t} />
 
-                // 2. FLOW STATE (POMODORO)
+                
                 ) : isFlowState ? (
                   <FlowStateDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} />
 
-                // 3. DEVELOPER PATH
+                
                 ) : isDevPath ? (
                   <DeveloperPathDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} deleteTask={deleteTask} />
 
-                // 4. WEEKLY ROUTINE / CALENDAR
+                
                 ) : isWeekly ? (
                   <WeeklyRoutineDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} />
 
-                // 5. STANDARD UI
+                
                 ) : (
                   <StandardDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} insertTaskDirectly={insertTaskDirectly} progressPercentage={progressPercentage} t={t} />
                 )}

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import { Lock, Mail, Key, LogIn, UserPlus, Loader2 } from "lucide-react";
 
-// 🔥 KAMUS MINI KHUSUS LAYAR LOGIN 🔥
+
 const authDict = {
   en: { 
     title: "Vaults Access", sub: "Encrypted protocol management system.", 

@@ -23,18 +23,18 @@ export default function StandardDashboard({
   insertTaskDirectly,
   progressPercentage,
   t
-}: StandardDashboardProps) {
-  // STATE INPUT PINDAH KESINI!
-  const [isAdding, setIsAdding] = useState(false);
-  const [newTaskName, setNewTaskName] = useState("");
+  }: StandardDashboardProps) {
 
-  const addTask = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && newTaskName.trim()) {
-      await insertTaskDirectly(newTaskName);
-      setNewTaskName(""); 
-      setIsAdding(false);
-    }
-  };
+    const [isAdding, setIsAdding] = useState(false);
+    const [newTaskName, setNewTaskName] = useState("");
+
+    const addTask = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter' && newTaskName.trim()) {
+        await insertTaskDirectly(newTaskName);
+        setNewTaskName(""); 
+        setIsAdding(false);
+      }
+    };
 
   return (
     <div className="animate-[fadeIn_0.5s_ease-out]">
