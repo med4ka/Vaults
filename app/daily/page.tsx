@@ -592,7 +592,7 @@ export default function DailyProtocol() {
                           <WeeklyRoutineDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} />
                     ) : (
                           <StandardDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} insertTaskDirectly={insertTaskDirectly} progressPercentage={progressPercentage} t={t} />
-                )} 
+              )} 
               </>
             )}
             
