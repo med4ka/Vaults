@@ -15,6 +15,7 @@ import DeveloperPathDashboard from "../components/DeveloperPathDashboard";
 import WeeklyRoutineDashboard from "../components/WeeklyRoutineDashboard";
 import StandardDashboard from "../components/StandardDashboard";
 import AnalyticsDashboard from "../components/AnalyticsDashboard";
+import CalendarDashboard from "../components/CalendarDashboard";
 
 type Task = { id: string; name: string; checked: boolean; protocol_id: string };
 type Protocol = { id: string; name: string; icon: string; tasks: Task[] };
@@ -165,6 +166,7 @@ export default function DailyProtocol() {
     let protocolName = "Untitled"; let iconName = "FolderDot"; let tasksList: string[] = [];
     
     
+    
     if (type === "weekly") {
       protocolName = "Weekly Routine";
       iconName = "CalendarDays"; 
@@ -184,6 +186,8 @@ export default function DailyProtocol() {
     } else {
       tasksList = ["New Task..."];
     }
+
+    
 
     const { data } = await supabase.from('protocols').insert([{ name: protocolName, icon: iconName }]).select();
     if (data && data.length > 0) {
@@ -253,6 +257,7 @@ export default function DailyProtocol() {
   const isWeekly = localTitle.toLowerCase().includes("weekly");
   const isFlowState = localTitle.toLowerCase().includes("flow state");
   const isFinance = localTitle.toLowerCase().includes("financ") || localTitle.toLowerCase().includes("wallet");
+  const isCalendar = localTitle.toLowerCase().includes("calendar") || localTitle.toLowerCase().includes("jadwal");
 
   
   let totalIn = 0; let totalOut = 0;
@@ -576,24 +581,18 @@ export default function DailyProtocol() {
 
                 
                 {isFinance ? (
-                  <FinanceDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} deleteTask={deleteTask} t={t} />
-
-                
-                ) : isFlowState ? (
-                  <FlowStateDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} />
-
-                
-                ) : isDevPath ? (
-                  <DeveloperPathDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} deleteTask={deleteTask} />
-
-                
-                ) : isWeekly ? (
-                  <WeeklyRoutineDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} />
-
-                
-                ) : (
-                  <StandardDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} insertTaskDirectly={insertTaskDirectly} progressPercentage={progressPercentage} t={t} />
-                )}
+  <FinanceDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} deleteTask={deleteTask} t={t} />
+                    ) : isFlowState ? (
+                          <FlowStateDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} />
+                    ) : isDevPath ? (
+                          <DeveloperPathDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} deleteTask={deleteTask} />
+                    ) : isCalendar ? (
+                          <CalendarDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} />
+                    ) : isWeekly ? (
+                          <WeeklyRoutineDashboard activeProtocol={activeProtocol} insertTaskDirectly={insertTaskDirectly} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} />
+                    ) : (
+                          <StandardDashboard activeProtocol={activeProtocol} updateTaskText={updateTaskText} toggleTask={toggleTask} deleteTask={deleteTask} insertTaskDirectly={insertTaskDirectly} progressPercentage={progressPercentage} t={t} />
+                )} 
               </>
             )}
             
