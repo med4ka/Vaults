@@ -25,7 +25,7 @@ export default function WeeklyRoutineDashboard({
   const [currentWeekStart, setCurrentWeekStart] = useState(new Date());
   const [weekDates, setWeekDates] = useState<Date[]>([]);
 
-  // Logika buat dapet 7 tanggal dalam seminggu
+  
   useEffect(() => {
     const getWeekDates = (baseDate: Date) => {
       const dates = [];
@@ -62,7 +62,7 @@ export default function WeeklyRoutineDashboard({
 
   return (
     <div className="animate-[fadeIn_0.5s_ease-out]">
-      {/* HEADER NAVIGASI TANGGAL */}
+      
       <div className="flex items-center justify-between mb-8 bg-[var(--bg-hover)]/30 p-4 rounded-2xl border border-[var(--border)]">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-[var(--accent)]/10 rounded-lg text-[var(--accent)]">

@@ -246,7 +246,10 @@ export default function DailyProtocol() {
     await supabase.from('tasks').delete().eq('id', taskId);
   };
 
-  if (isLoading) return <main className="flex h-screen bg-[#191919]" />;
+  
+  if (isLoading && protocols.length === 0) {
+    return <main className="flex h-screen bg-[var(--bg-main)]" />;
+  }
 
   const ActiveLogo = getLogo(activeProtocol?.icon || "", localTitle);
   const completedTasks = activeProtocol?.tasks.filter(t => t.checked).length || 0;
