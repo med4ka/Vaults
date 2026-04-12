@@ -43,6 +43,8 @@ export default function WeeklyRoutineDashboard({
       }
       return dates;
     };
+  
+
     setWeekDates(getWeekDates(currentWeekStart));
   }, [currentWeekStart]);
 
@@ -59,6 +61,13 @@ export default function WeeklyRoutineDashboard({
       setAddingDay(null);
     }
   };
+
+    const getLocalYYYYMMDD = (d: Date) => {
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+    };
 
   return (
     <div className="animate-[fadeIn_0.5s_ease-out]">
@@ -91,8 +100,8 @@ export default function WeeklyRoutineDashboard({
       <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
         {weekDates.map((date) => {
           const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-          const dateStr = date.toISOString().split('T')[0];
-          const isToday = new Date().toISOString().split('T')[0] === dateStr;
+          const dateStr = getLocalYYYYMMDD(date);
+          const isToday = getLocalYYYYMMDD(new Date()) === dateStr;
 
           return (
             <div key={dateStr} className={`flex flex-col min-h-[200px] rounded-2xl border transition-all ${isToday ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_0_20px_rgba(46,170,220,0.1)]' : 'border-[var(--border)] bg-[var(--bg-hover)]/20'}`}>
