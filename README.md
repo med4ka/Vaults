@@ -44,24 +44,24 @@ Originally developed to orchestrate my daily engineering workflows, financial tr
 *Visual compilation showcasing the analytics engine charts, automated focus timers, task boards, and asset books.*
 <table>
   <tr>
-    <td align="center"><b>Analytics & Telemetry</b></td>
-    <td align="center"><b>Bespoke Personal Settings</b></td>
+    <td align="center"><b>Vaults Template</b></td>
+    <td align="center"><b>Vaults Weekly Routine</b></td>
   </tr>
   <tr>
     <td align="center"><img src="public/vaults2.png" width="100%" alt="Vaults Template"/></td>
     <td align="center"><img src="public/vaults3.png" width="100%" alt="Vaults Weekly Routine"/></td>
   </tr>
   <tr>
-    <td align="center"><b>Flow State Module</b></td>
-    <td align="center"><b>Financial Ledger Engine</b></td>
+    <td align="center"><b>Vaults Dev Track</b></td>
+    <td align="center"><b>Vaults Financial Log</b></td>
   </tr>
   <tr>
     <td align="center"><img src="public/vaults4.png" width="100%" alt="Vaults Dev Track"/></td>
     <td align="center"><img src="public/vaults5.png" width="100%" alt="Vaults Financial Log"/></td>
   </tr>
   <tr>
-    <td align="center"><b>Developer Project Canvas</b></td>
-    <td align="center"><b>Weekly Habits Registry</b></td>
+    <td align="center"><b>Vaults Flow State</b></td>
+    <td align="center"><b>Vaults Configuration</b></td>
   </tr>
   <tr>
     <td align="center"><img src="public/vaults6.png" width="100%" alt="Vaults Flow State"/></td>
