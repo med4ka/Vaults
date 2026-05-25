@@ -37,7 +37,7 @@ Originally developed to orchestrate my daily engineering workflows, financial tr
   <img src="public/vaults1.png" width="90%" alt="Vaults Landing Hub"/>
 </p>
 <p align="center">
-  <img src="public/vaults8.png" width="90%" alt="Vaults Template Initializer"/>
+  <img src="public/vaults2.png" width="90%" alt="Vaults Template Initializer"/>
 </p>
 
 ### 2. Operational Dashboards & Routine Trackers
@@ -48,15 +48,15 @@ Originally developed to orchestrate my daily engineering workflows, financial tr
     <td align="center"><b>Bespoke Personal Settings</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="public/vaults2.png" width="100%" alt="Vaults Analytics"/></td>
-    <td align="center"><img src="public/vaults3.png" width="100%" alt="Vaults Configuration"/></td>
+    <td align="center"><img src="public/vaults2.png" width="100%" alt="Vaults Template"/></td>
+    <td align="center"><img src="public/vaults3.png" width="100%" alt="Vaults Weekly Routine"/></td>
   </tr>
   <tr>
     <td align="center"><b>Flow State Module</b></td>
     <td align="center"><b>Financial Ledger Engine</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="public/vaults4.png" width="100%" alt="Vaults Flow State"/></td>
+    <td align="center"><img src="public/vaults4.png" width="100%" alt="Vaults Dev Track"/></td>
     <td align="center"><img src="public/vaults5.png" width="100%" alt="Vaults Financial Log"/></td>
   </tr>
   <tr>
@@ -64,8 +64,8 @@ Originally developed to orchestrate my daily engineering workflows, financial tr
     <td align="center"><b>Weekly Habits Registry</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="public/vaults6.png" width="100%" alt="Vaults Dev Track"/></td>
-    <td align="center"><img src="public/vaults7.png" width="100%" alt="Vaults Weekly Board"/></td>
+    <td align="center"><img src="public/vaults6.png" width="100%" alt="Vaults Flow State"/></td>
+    <td align="center"><img src="public/vaults7.png" width="100%" alt="Vaults Configuration"/></td>
   </tr>
 </table>
 
