@@ -1,92 +1,95 @@
-<h1 align="center">📦 Vaults</h1>
-<p align="center">
-  <i>Your personal protocol. Architect your day, track your progress, and secure your focus without the friction of complex setups.</i>
-</p>
+# Vaults
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Frontend-Next.js_14-black?style=for-the-badge&logo=next.js" />
-  <img src="https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css" />
-  <img src="https://img.shields.io/badge/Backend-Golang_Gin-00ADD8?style=for-the-badge&logo=go" />
-  <img src="https://img.shields.io/badge/State-Local_Storage-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-</p>
+**A minimalist personal productivity dashboard — no nested blocks to configure, no markdown syntax to learn. Pick a mode, start working.**
+
+Vaults was built as a lighter alternative to heavyweight, endlessly-configurable productivity tools. Instead of building your own layout from scratch every time, you switch between purpose-built dashboard modes — deep work timer, dev project tracker, weekly habits, personal finance — each one opinionated and ready to use immediately.
 
 ---
 
-## 📌 Project Overview & Intent
+## Features
 
-**Vaults** is a zero-friction, minimalist personal productivity dashboard designed as a streamlined alternative to over-complicated data-organizers. There are no canvas layouts to design, no nested blocks to configure, and no markdown syntaxes to memorize. It is built strictly for high-performance execution: you simply boot up the interface, activate your workspace, and trigger predefined structural routines with a single click.
+- **Flow State** — focused work session dashboard with a countdown timer
+- **Developer Path** — track software project scope, tech stack, and target release dates
+- **Weekly Routine** — a recurring habit/task board for daily reviews
+- **Finance** — income/expense logging with an analytics view
+- **Auth** — user accounts via Supabase Auth
+- **Calendar & Analytics dashboards** — supporting views alongside the four core modes above
 
-Originally developed to orchestrate my daily engineering workflows, financial tracking, and deeply focused studying phases, this repository serves as a powerful standalone operational control unit.
+## Tech Stack
 
----
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router), React 19, TypeScript |
+| Styling | Tailwind CSS v4 |
+| Backend / Data | Supabase (Postgres + Auth) |
+| Charts | Recharts |
+| Icons | Lucide React |
 
-## ⚡ The 4 Core Protocol Modes
+> **Note:** this is a single Next.js application talking directly to Supabase — there's no separate custom backend server. (An earlier version of this README referenced a Go/Gin backend that was never actually part of this repository; that's been corrected here.)
 
-* ⚡ **Flow State Workspace:** An immersive study/deep-work workspace equipped with an active countdown timer matrix and responsive geometric backdrop configurations (Grid, Noise, or Waves).
-* 💼 **Developer Path:** A programmatic lifecycle scheduler built to instantly map out software engineering project scopes, active tech-stacks, and baseline release deadlines.
-* 🗓️ **Weekly Routine Protocol:** A quick-click digital board tracking static daily habits, automated morning reviews, and weekly task synchronization lists.
-* 💰 **Financial Assistant:** An integrated personal balance book handling transactional logging (Income vs Expenses) which channels telemetry vectors straight to a concurrent backend REST API engine.
+## Getting Started
 
----
+### Prerequisites
+- Node.js 18+
+- A Supabase project (free tier is enough) — you'll need its URL and anon key
 
-## 📸 Interface Showroom
+### Setup
 
-### 1. Unified Workspace Portal & Calibration Hub
-*A premium terminal landing page featuring isolated grid patterns, ambient lighting glows, and fluid layout controls.*
+```bash
+git clone https://github.com/med4ka/Vaults.git
+cd Vaults
+npm install
+```
+
+Create `.env.local` in the project root:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:3000`.
+
+## Project Structure
+
+```
+Vaults/
+└── app/
+    ├── components/
+    │   ├── AuthScreen.tsx
+    │   ├── FlowStateDashboard.tsx
+    │   ├── DeveloperPathDashboard.tsx
+    │   ├── WeeklyRoutineDashboard.tsx
+    │   ├── FinanceDashboard.tsx
+    │   ├── AnalyticsDashboard.tsx
+    │   └── CalendarDashboard.tsx
+    ├── daily/          # daily view route
+    ├── templates/       # template/mode selector route
+    ├── lib/
+    │   └── supabase.ts  # Supabase client setup
+    └── page.tsx
+```
+
+## Screenshots
+
 <p align="center">
-  <img src="public/vaults1.png" width="90%" alt="Vaults Landing Hub"/>
+  <img src="public/vaults1.png" width="90%" alt="Vaults landing"/>
 </p>
-<p align="center">
-  <img src="public/vaults2.png" width="90%" alt="Vaults Template Initializer"/>
-</p>
-
-### 2. Operational Dashboards & Routine Trackers
-*Visual compilation showcasing the analytics engine charts, automated focus timers, task boards, and asset books.*
 <table>
   <tr>
-    <td align="center"><b>Vaults Template</b></td>
-    <td align="center"><b>Vaults Weekly Routine</b></td>
+    <td align="center"><img src="public/vaults3.png" width="100%" alt="Weekly Routine"/></td>
+    <td align="center"><img src="public/vaults4.png" width="100%" alt="Developer Path"/></td>
   </tr>
   <tr>
-    <td align="center"><img src="public/vaults2.png" width="100%" alt="Vaults Template"/></td>
-    <td align="center"><img src="public/vaults3.png" width="100%" alt="Vaults Weekly Routine"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Vaults Dev Track</b></td>
-    <td align="center"><b>Vaults Financial Log</b></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="public/vaults4.png" width="100%" alt="Vaults Dev Track"/></td>
-    <td align="center"><img src="public/vaults5.png" width="100%" alt="Vaults Financial Log"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Vaults Flow State</b></td>
-    <td align="center"><b>Vaults Configuration</b></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="public/vaults6.png" width="100%" alt="Vaults Flow State"/></td>
-    <td align="center"><img src="public/vaults7.png" width="100%" alt="Vaults Configuration"/></td>
+    <td align="center"><img src="public/vaults5.png" width="100%" alt="Finance"/></td>
+    <td align="center"><img src="public/vaults6.png" width="100%" alt="Flow State"/></td>
   </tr>
 </table>
 
 ---
 
-## 🚀 Local Development Setup
-
-### Prerequisites
-* Go 1.20+ Installed
-* Node.js v18+ & npm
-
-### Service Initialization Command
-Follow these operational sequences to execute both the web-client deployment interface and the transaction storage endpoint core engine locally:
-
-```bash
-# 1. Fire up the concurrent Golang Gin server pipeline (Runs on port :8080)
-cd backend
-go mod download
-go run main.go
-
-# 2. Spin up the modern Next.js client environment (Runs on port :3000 in separate terminal)
-cd frontend
-npm install
-npm run dev
+*Built with Next.js, Tailwind CSS, and Supabase.*
